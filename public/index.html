@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+  <title>LinedUp - Concerts I've been visiting</title>
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<header class="one-whole header">
+    <h1>_LinedUp</h1>
+    <h4>Concerts I've been visiting.</h4>
+  </header>
+
+  <main id="content" class="content"></main>
+
+  <footer class="footer">
+    <p>Made with <span class="heart">&hearts;</span> by <a href="https://twitter.com/_kevinatari">Kevin
+    Gimbel</a>. See the source code on <a
+    href="https://github.com/kevingimbel/LinedUp">GitHub</a>.</p>
+  </footer>
+
+<script type="text/javascript" src="/js/ajax.js"></script>
+<script type="text/javascript" src="/js/renderer.js"></script>
+<script type="text/javascript">
+var dummyData = [];
+
+/*
+ * Template for the RenderEngine.
+ */
+var template = '<div class="one-quarter">';
+    template += '<div class="concert concert--{date}">';
+    template += '<h3>{name}</h3>';
+    template += '<p>{venue}</p>';
+    template += '<p>({city}, {country} - {date})</p>';
+    template += '</div>';
+    template += '</div>';
+
+// Build up everything once the DOM is ready.
+document.addEventListener('DOMContentLoaded', function() {
+    Ajax.get('http://localhost:1337/api/concerts', function(data) {
+    var content = document.querySelector('#content');
+    var Renderer = new RenderEngine();
+    // Configure the renderer.
+    Renderer.setTemplate(template);
+
+
+    // Set the render data
+    Renderer.setData(JSON.parse(data.response));
+
+    var htmlStr = Renderer.render();
+    content.innerHTML = htmlStr;
+  });
+  /*
+	var dummyData = [];
+  window.createDummyData = function createDummyData() {
+  var formTemplate = 'name={name}&venue={venue}&date={date}&city={city}&country={country}';
+  var FormSanitizer = new RenderEngine();
+  FormSanitizer.setTemplate(formTemplate);
+
+    dummyData.forEach(function(item) {
+      FormSanitizer.setData([item]);
+
+      Ajax.post('http://localhost:1337/api/concerts', FormSanitizer.render(), function(res) {
+        console.log(res);
+      });
+    });
+  } */
+});
+</script>
+</body>
+</html>

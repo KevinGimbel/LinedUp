@@ -1,0 +1,303 @@
+ [
+  {
+    "name": "Beatsteaks",
+    "venue": "Jahrhunderthalle",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2011"
+  }, {
+    "name": "Kraftklub",
+    "venue": "Jahrhunderthalle",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2011"
+  }, {
+    "name": "Bloody Beetroots",
+    "venue": "Schlachthof",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2013"
+  },{
+    "name": "Ira Atari",
+    "venue": "schon schön",
+    "city": "Mayence",
+    "country": "Germany",
+    "date": "2011"
+  }, {
+    "name": "Frittenbude",
+    "venue": "Schlachthof",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2012"
+  },{
+    "name": "Bondage Fairies",
+    "venue": "Schlachthof",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2013"
+  }, {
+    "name": "Egotronic",
+    "venue": "ZOOM",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2015"
+  }, {
+    "name": "Bonaparte",
+    "venue": "Folklore 09",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2009"
+  }, {
+    "name": "Egotronic",
+    "venue": "Folklore 09",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2009"
+  }, {
+    "name": "Mediengruppe Telekommander",
+    "venue": "Folklore 09",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2009"
+  }, {
+    "name": "Vincent Van Go Go",
+    "venue": "Folklore 09",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2009"
+  }, {
+    "name": "Blumentopf",
+    "venue": "Folklore 010",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2010"
+  }, {
+    "name": "Frittenbude",
+    "venue": "Folklore 010",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2010"
+  }, {
+    "name": "Ohrbooten",
+    "venue": "Folklore 010",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2010"
+  }, {
+    "name": "Tocotronic",
+    "venue": "Folklore 010",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2010"
+  }, {
+    "name": "Blumentopf",
+    "venue": "Folklore 13",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2013"
+  }, {
+    "name": "Dendemann",
+    "venue": "Folklore 13",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2013"
+  }, {
+    "name": "Deadmau5",
+    "venue": "SonneMondSterne X8",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2014"
+  }, {
+    "name": "Fatboy Slim",
+    "venue": "SonneMondSterne X8",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2014"
+  }, {
+    "name": "Steve Aoki",
+    "venue": "SonneMondSterne X8",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2014"
+  }, {
+    "name": "Netsky",
+    "venue": "SonneMondSterne X8",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2014"
+  }, {
+    "name": "Benny Page",
+    "venue": "SonneMondSterne X8",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2014"
+  }, {
+    "name": "Ragga Twins",
+    "venue": "SonneMondSterne X8",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2014"
+  }, {
+    "name": "Deichkind",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  }, {
+    "name": "Faithless",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Netsky",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Sigma",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Borgore",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Robin Schulz",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Ostblockschlampen",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  }, {
+    "name": "Andy C",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Aka Aka feat. Thalstroem",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "High Contrast",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Loadstar",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "J Frequency",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "B-Complex",
+    "venue": "SonneMondSterne X9",
+    "city": "Saalburg",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Fuck Art, Let\"s Dance",
+    "venue": "Schlossgrabenfest",
+    "city": "Darmstadt",
+    "country": "Germany",
+    "date": "2012"
+  }, {
+    "name": "Egotronic",
+    "venue": "Schlossgrabenfest",
+    "city": "Darmstadt",
+    "country": "Germany",
+    "date": "2012"
+  }, {
+    "name": "Laith Al-Deen",
+    "venue": "Schlossgrabenfest",
+    "city": "Darmstadt",
+    "country": "Germany",
+    "date": "2013"
+  }, {
+    "name": "Ohrbooten",
+    "venue": "Schlossgrabenfest",
+    "city": "Darmstadt",
+    "country": "Germany",
+    "date": "2013"
+  },{
+    "name": "Ira Atari",
+    "venue": "Sommerschein",
+    "city": "Hofheim",
+    "country": "Germany",
+    "date": "2011"
+  }, {
+    "name": "Bonaparte",
+    "venue": "Folklore 12",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2012"
+  }, {
+    "name": "Casper",
+    "venue": "Folklore 12",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2012"
+  }, {
+    "name": "Kraftklub",
+    "venue": "Folklore 12",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2012"
+  }, {
+    "name": "Egotronic",
+    "venue": "Folklore 12",
+    "city": "Wiesbaden",
+    "country": "Germany",
+    "date": "2012"
+  }, {
+    "name": "Steve Angello",
+    "venue": "World Club Dome",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Steve Aoki",
+    "venue": "World Club Dome",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "The Bloody Beetroots (SBCR)",
+    "venue": "World Club Dome",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "Oliver Heldens",
+    "venue": "World Club Dome",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2015"
+  },{
+    "name": "DVBBS",
+    "venue": "World Club Dome",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "date": "2015"
+  }
+];
