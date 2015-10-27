@@ -7,8 +7,6 @@ collection of concerts I've been to that I'm aiming to update so it soon holds
 all conerts I've ever been to. At the moment not every concert I attended is
 listed, getting together all information is quite a task.
 
-A working example can be found at
-[concerts.kevingimbel.me](http://concerts.kevingimbel.me) 
 ### Stack
 
 LinedUp is written in Node.js - the underlying Server is Express. The database I
