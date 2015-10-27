@@ -102,7 +102,7 @@ app.use('/api', router);
 // ===========================================
 //                                    MONGO DB
 // ===========================================
-mongoose.connect('mongodb://localhost/concerts');
+mongoose.connect(config.mongodb);
 
 // Starting the server
 app.listen(port);
