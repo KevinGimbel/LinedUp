@@ -4,5 +4,5 @@
 
 module.exports = {
   port: 1337,
-  token: 'abcdefghijklmnopqrstuvwxyz0123456789'
+  mongodb: 'mongodb://localhost/concerts'  
 }

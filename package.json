@@ -1,14 +1,18 @@
 {
-  "name": "linedup",
+  "name": "LinedUp",
   "version": "0.0.1",
   "description": "An App to keep track on visited concerts.",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevingimbel/LinedUp"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "server": "nodemon  server.js"
   },
   "author": "Kevin Gimbel",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",

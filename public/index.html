@@ -12,8 +12,14 @@
 </head>
 <body>
 	<header class="one-whole header">
-    <h1>_LinedUp</h1>
-    <h4>Concerts I've been visiting.</h4>
+    <div class="g one-half">
+      <h1>_LinedUp</h1>
+      <h4>Concerts I've been visiting.</h4>
+    </div>
+    <div class="g one-half">
+      <input id="q" type="search" placeholder="Filter events, type 'name: Egotronic' or 'city: Frankfurt'">
+      <small><b>Hint:</b> Clear input to reset.</small>
+    </div>    
   </header>
 
   <main id="content" class="content"></main>
@@ -26,12 +32,9 @@
 
 <script type="text/javascript" src="/js/ajax.js"></script>
 <script type="text/javascript" src="/js/renderer.js"></script>
+<script type="text/javascript" src="/js/LinedUp.js"></script>
 <script type="text/javascript">
-var dummyData = [];
-
-/*
- * Template for the RenderEngine.
- */
+// Template for the RenderEngine.
 var template = '<div class="one-quarter">';
     template += '<div class="concert concert--{date}">';
     template += '<h3>{name}</h3>';
@@ -42,35 +45,48 @@ var template = '<div class="one-quarter">';
 
 // Build up everything once the DOM is ready.
 document.addEventListener('DOMContentLoaded', function() {
-    Ajax.get('http://localhost:1337/api/concerts', function(data) {
     var content = document.querySelector('#content');
     var Renderer = new RenderEngine();
+
+    Ajax.get('http://localhost:1337/api/concerts', function(data) {
     // Configure the renderer.
     Renderer.setTemplate(template);
 
-
     // Set the render data
-    Renderer.setData(JSON.parse(data.response));
+    LinedUp.setData(JSON.parse(data.response));
+    Renderer.setData(LinedUp.getData());
 
     var htmlStr = Renderer.render();
     content.innerHTML = htmlStr;
   });
-  /*
-	var dummyData = [];
-  window.createDummyData = function createDummyData() {
-  var formTemplate = 'name={name}&venue={venue}&date={date}&city={city}&country={country}';
-  var FormSanitizer = new RenderEngine();
-  FormSanitizer.setTemplate(formTemplate);
 
-    dummyData.forEach(function(item) {
-      FormSanitizer.setData([item]);
+  var filterSearch = document.getElementById('q');
 
-      Ajax.post('http://localhost:1337/api/concerts', FormSanitizer.render(), function(res) {
-        console.log(res);
-      });
-    });
-  } */
+  filterSearch.addEventListener('keyup', function() {
+    var value = filterSearch.value; 
+    var reduce = value.split(':');
+ 
+    if(value.length === 0) {
+      Renderer.setData(LinedUp.getData());
+
+      var htmlStr = Renderer.render();
+      content.innerHTML = htmlStr;
+    }
+
+    var prop = reduce[0];
+    var value = reduce[1];
+    if(prop && value) {
+      var newData = LinedUp.reduceBy( reduce[0], reduce[1] );
+      if(newData.length > 0) {
+        Renderer.setData(newData);
+
+        var htmlStr = Renderer.render();
+        content.innerHTML = htmlStr;
+      }
+    }
+  });
 });
+
 </script>
 </body>
 </html>

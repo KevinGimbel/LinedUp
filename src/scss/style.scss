@@ -45,14 +45,26 @@ h1 {
   padding: 1rem;
 }
 
+.one-half {
+  width: 49%;
+  display: inline-block; 
+}
 @media all and (max-width: 60rem) {
   .one-quarter {
     width: 50%;  
+  }
+  
+  .one-half {
+    width: 100%;  
   }
 }
 
 @media all and (max-width: 40rem) {
   .one-quarter {
+    width: 100%;  
+  } 
+  
+  .one-half {
     width: 100%;  
   }
 }
@@ -108,6 +120,12 @@ h1 {
   &--2009 {
     border-left-color: #FF5722; 
   }
+}
+
+input {
+  font-size: 1rem;
+  padding: .75rem 1.25rem;  
+  width: 100%;
 }
 
 .footer {
