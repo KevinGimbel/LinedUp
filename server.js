@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config.js');
 
-var port = process.env.PORT || config.port;
+var port = config.port || '1337';
 var router = express.Router();
 
 // ===========================================
@@ -24,16 +24,16 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
-// ==========================================
-//                               ACCESS POINT
-// ==========================================
+// ===========================================
+//                                ACCESS POINT
+// ===========================================
 router.get('/', function(req, res) {
   req.sendfile('./public/index.html');
 });
 
-// ===========================================
-//                                  API ROUTES
-// ===========================================
+// ============================================
+//                                   API ROUTES
+// ============================================
 // Defining routes used from the API
 
 router.use(function(req, res, next) {
@@ -43,22 +43,6 @@ router.use(function(req, res, next) {
 });
 
 router.route('/concerts')
-  // Handle creation of new  
-  // Concerts
-  .post(function(req, res) {
-    var concert = new Concert();
-    concert.name    = req.body.name;
-    concert.venue   = req.body.venue;
-    concert.date    = req.body.date;
-    concert.country = req.body.country;
-    concert.city    = req.body.city;
-
-    concert.save(function(err) {
-      if(err) { res.send(err); }
-      
-      res.json({ message: 'Concert created!' });
-    });
-  })
   // Get all concerts when requested with GET
   .get(function(req, res) {
     /*
@@ -86,16 +70,40 @@ router.route('/concerts')
     });
 });
 
-router.route('/concerts/:concert_id')
-  // GET ACTION of api/concerts/:concert_id
-  .get(function(req, res) {
-    Concert.findById(req.params.concert_id, function(err, concert) {
+router.route('/concerts/filters')
+// Get all concerts when requested with GET
+.get(function(req, res) {
+    /*
+     * Build up filters used to build a
+     * dynamic navigation 
+     */
+    Concert.find({}, 'venue city name -_id',
+      null, function(err, data) {
       if(err) {
         res.send(err);  
       }
-      res.json(concert);
-    });  
-  });
+      
+      var filters = {
+        venue: [],
+        city: [],
+        artists: [] 
+      };
+      data.forEach(function(item) {
+        if(filters.venue.indexOf(item.venue) < 0) {
+          filters.venue.push(item.venue);  
+        }
+        if(filters.city.indexOf(item.city) < 0) {
+          filters.city.push(item.city);  
+        }
+        if(filters.artists.indexOf(item.name) < 0) {
+          filters.artists.push(item.name);  
+        }
+      });
+
+      res.json(filters);
+      });
+});
+
 // Adding the API routes to the `/api` endpoint.
 app.use('/api', router);
 

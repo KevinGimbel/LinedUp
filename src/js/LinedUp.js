@@ -98,5 +98,3 @@ var LinedUp = (function(window, document, undefined) {
 
     return new LinedUp();
 }(window, document));
-
-

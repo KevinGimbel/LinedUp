@@ -19,10 +19,18 @@
     <div class="g one-half">
       <input id="q" type="search" placeholder="Filter events, type 'name: Egotronic' or 'city: Frankfurt'">
       <small><b>Hint:</b> Clear input to reset.</small>
-    </div>    
+    </div>
+    <div class="g one-whole">
+      <h4>Filters <a href="#" id="nav-trigger" style="float: right;">Show Filters</a></h4>
+      <div id="nav" data-state="hidden"></div>
+    </div>
   </header>
 
-  <main id="content" class="content"></main>
+  <main id="content" class="content">
+    <div class="loader-wrap">
+      <h3 class="loader">Loading concerts...</h3>
+    </div>
+  </main>
 
   <footer class="footer">
     <p>Made with <span class="heart">&hearts;</span> by <a href="https://twitter.com/_kevinatari">Kevin
@@ -46,9 +54,24 @@ var template = '<div class="one-quarter">';
 // Build up everything once the DOM is ready.
 document.addEventListener('DOMContentLoaded', function() {
     var content = document.querySelector('#content');
-    var Renderer = new RenderEngine();
+    var navigation = document.querySelector('#nav');
+		var navTrigger = document.querySelector('#nav-trigger');
+		var Renderer = new RenderEngine();
+    var baseUrl = window.location.origin;
 
-    Ajax.get('http://localhost:1337/api/concerts', function(data) {
+	navTrigger.addEventListener('click', function(event) {
+		event.preventDefault();
+		var state = nav.dataset.state;
+		if(state == 'hidden') {
+			nav.dataset.state = 'visible';
+			navTrigger.textContent = 'Hide Filters';
+		} else {
+			nav.dataset.state = 'hidden';
+			navTrigger.textContent = 'Show Filters';
+		}
+	});
+
+  Ajax.get(baseUrl + '/api/concerts', function(data) {
     // Configure the renderer.
     Renderer.setTemplate(template);
 
@@ -60,15 +83,60 @@ document.addEventListener('DOMContentLoaded', function() {
     content.innerHTML = htmlStr;
   });
 
-  var filterSearch = document.getElementById('q');
+  window.setFilter = function(prop, value) {
+    if(prop && value) {
+      var newData = LinedUp.reduceBy( prop, value );
+      if(newData.length > 0) {
+        Renderer.setData(newData);
 
+        var htmlStr = Renderer.render();
+        content.innerHTML = htmlStr;
+      }
+    }
+  };
+
+	window.setFilterMenu = function(prop, value, context) {
+		window.setFilter(prop, value);
+
+		var navItems = navigation.querySelectorAll('a');
+		[].forEach.call(navItems, function(item) {
+			item.classList.remove('active');
+		});
+		context.classList.add('active');
+  };
+
+  Ajax.get(baseUrl + '/api/concerts/filters', function(data) {
+    var parsedData = JSON.parse(data.response);
+
+    var venueNav = '<nav id="venue"><h5>Venues and Festivals: </h5>';
+    parsedData['venue'].forEach(function(item) {
+      venueNav += '<a href="#" onclick="window.setFilterMenu(\'venue\',\''+item+'\', this);">'+ item +'</a>';
+    });
+    venueNav += '</nav>';
+
+    var cityNav = venueNav + '<nav id="city"><h5>Cities: </h5>';
+    parsedData['city'].forEach(function(item) {
+      cityNav += '<a href="#" onclick="window.setFilterMenu(\'city\', \''+item+'\', this);">'+ item +'</a>';
+    });
+    cityNav += '</nav>';
+
+    var artistNav = cityNav + '<nav id="city"><h5>Artists: </h5>';
+    parsedData['artists'].forEach(function(item) {
+      artistNav += '<a href="#" onclick="window.setFilterMenu(\'name\', \''+item+'\', this);">'+ item +'</a>';
+      });
+    artistNav += '</nav>';
+
+    navigation.innerHTML = artistNav;
+  });
+
+
+  var filterSearch = document.getElementById('q');
   filterSearch.addEventListener('keyup', function() {
-    var value = filterSearch.value; 
+    var value = filterSearch.value;
     var reduce = value.split(':');
- 
+
     if(value.length === 0) {
       Renderer.setData(LinedUp.getData());
-
       var htmlStr = Renderer.render();
       content.innerHTML = htmlStr;
     }
@@ -76,13 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var prop = reduce[0];
     var value = reduce[1];
     if(prop && value) {
-      var newData = LinedUp.reduceBy( reduce[0], reduce[1] );
-      if(newData.length > 0) {
-        Renderer.setData(newData);
-
-        var htmlStr = Renderer.render();
-        content.innerHTML = htmlStr;
-      }
+      setFilter(prop, value);
     }
   });
 });
