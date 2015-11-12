@@ -1,14 +1,12 @@
 # LinedUp
-(What a horrible name)
+[Live Demo](http://concerts.kevingimbel.me)
 
 ### What's this?
-LinedUp is an "app" I wrote to get into Node.js, MongoDB and ExpressJS. It's a
+LinedUp is an app/website I build to get into Node.js, MongoDB and ExpressJS. It's a
 collection of concerts I've been to that I'm aiming to update so it soon holds
-all conerts I've ever been to. At the moment not every concert I attended is
-listed, getting together all information is quite a task.
+all concerts I've ever been to. Getting together all information is quite a task.
 
 ### Stack
-
 LinedUp is written in Node.js - the underlying Server is Express. The database I
 used is MongoDB which I enjoy working with so far. For the Front-End I'm using
 an self-made Ajax Function to fetch data and a `RenderEngine` to create the HTML
@@ -23,11 +21,9 @@ follows.
 |      Endpoint     | Type  | Return                                                       |
 |:------------------|:-----:|:-------------------------------------------------------------|
 | /api/concerts     | GET   | List of all concerts, sorted by: Date -> Venue -> Name       |
-| /api/concerts     | POST  | Creates a new concerts¹                                      |
-| /api/concerts/:id | GET   | Get only the data of a specific concert²                     |
+| /api/concerts/:id | GET   | Get only the data of a specific concert by ID¹               |
 
-* ¹ Only used in development
-* ² ID is not exposed yet
+* ¹ ID is not exposed yet
 
 ### Concert Model
 
