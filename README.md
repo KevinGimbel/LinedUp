@@ -22,11 +22,22 @@ follows.
 |:------------------|:-----:|:-------------------------------------------------------------|
 | /api/concerts     | GET   | List of all concerts, sorted by: Date -> Venue -> Name       |
 | /api/concerts/:id | GET   | Get only the data of a specific concert by ID¹               |
-
+| /api/concerts/filters | GET | Get fields but only once. Used for navigation*             |
 * ¹ ID is not exposed yet
 
-### Concert Model
+* The `/api/concerts/filters` Endpoint returns a reduced dataset. You'll get all the venues, dates, bands, etc. sorted by keys but every band, city and venue is only added once. The data then looks as follows:
 
+```js
+{ "venue":
+    ["Jahrhunderthalle","Schlachthof","ZOOM",...],
+  "city":
+    ["Frankfurt","Wiesbaden","Mayence",...],
+  "artists":
+    ["Beatsteaks","Kraftklub","Bloody Beetroots",...]
+}
+```
+
+### Concert Model
 The Concert Data Model currently only consists of some meta data.
 
 ```js
